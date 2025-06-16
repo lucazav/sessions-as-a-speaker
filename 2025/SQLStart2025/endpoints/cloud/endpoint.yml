@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+name: edp-bct-prediction
+description: Endpoint for BCT prediction using H2O-3 MOJO model
+auth_mode: aml_token

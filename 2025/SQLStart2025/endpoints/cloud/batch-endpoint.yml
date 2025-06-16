@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json
+name: edp-bct-batch-prediction
+description: Endpoint for btch BCT prediction using H2O-3 MOJO model
+auth_mode: aad_token

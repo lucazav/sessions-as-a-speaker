@@ -1,0 +1,38 @@
+{
+    "data": [
+      {
+        "Lunghezza": 600,
+        "Larghezza": 400,
+        "Altezza fiancata": 99,
+        "Altezza svaso": 65,
+        "TIPOLOGIA SCATOLA": "PL",
+        "SUPPORTO": 0,
+        "Thickness": 7.5,
+        "CodCarta1": 3,
+        "CodCarta2": 1,
+        "CodCarta3": 1,
+        "CodCarta4": 2,
+        "CodCarta5": 2,
+        "Alt_Testata": 98,
+        "C_Ond1": 1.36,
+        "C_Ond2": 1.46
+      },
+      {
+        "Lunghezza": 600,
+        "Larghezza": 400,
+        "Altezza fiancata": 99,
+        "Altezza svaso": 55,
+        "TIPOLOGIA SCATOLA": "PL",
+        "SUPPORTO": 0,
+        "Thickness": 7.5,
+        "CodCarta1": 3,
+        "CodCarta2": 1,
+        "CodCarta3": 1,
+        "CodCarta4": 2,
+        "CodCarta5": 2,
+        "Alt_Testata": 98,
+        "C_Ond1": 1.36,
+        "C_Ond2": 1.46
+      }
+    ]
+  }

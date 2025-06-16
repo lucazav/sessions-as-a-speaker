@@ -1,0 +1,9 @@
+$schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
+name: modello-bct
+path: ../model/MOJO_model10032025.zip
+description: Modello di regressione che predice la Box Compression Test (BCT). La BCT determina la forza massima che una scatola può sopportare prima di iniziare a deformarsi o collassare.
+version: 1
+tags:
+  framework: H2O-3
+  framework-version: 3.24.0.4
+  flavor: MOJO

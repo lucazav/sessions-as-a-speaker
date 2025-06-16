@@ -1,0 +1,10 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: dpl-registered-bct-model-score
+endpoint_name: edp-bct-prediction
+model: azureml:Mojo-Model-10032025@latest
+code_configuration:
+  code: ../src/
+  scoring_script: score.py
+environment: azureml:minimal-py311-inference-h2o@latest
+instance_type: Standard_D2d_v5
+instance_count: 1

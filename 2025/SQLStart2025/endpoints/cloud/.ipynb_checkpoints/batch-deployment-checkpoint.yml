@@ -1,0 +1,20 @@
+$schema: https://azuremlschemas.azureedge.net/latest/batchDeployment.schema.json
+name: dpl-batch-bct-model-score  # max 32 characters
+endpoint_name: edp-bct-batch-prediction
+model: azureml:Mojo-Model-10032025@latest
+code_configuration:
+  code: ../src/
+  scoring_script: batch-score.py
+environment: azureml:minimal-py311-inference-h2o@latest
+compute: azureml:compute-default
+resources:
+  instance_count: 2
+settings:
+  max_concurrency_per_instance: 2
+  mini_batch_size: 2    # number of files the scoring script can process in one run() call.
+  output_action: summary_only
+  retry_settings:
+    max_retries: 3
+    timeout: 300
+  error_threshold: -1
+  logging_level: info
