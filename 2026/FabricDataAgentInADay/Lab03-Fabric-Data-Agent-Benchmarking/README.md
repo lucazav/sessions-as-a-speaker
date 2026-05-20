@@ -123,7 +123,6 @@ Il metodo è manuale ma deliberato, poiché forza una validazione del ground tru
 1. Apri `final_benchmark.xlsx`.
 2. Filtra le righe dove `variant_type = canonical` (queste sono le domande canoniche, una per intent).
 3. Per ogni domanda canonica:
-
    1. Aprire il `zava-agent` in Fabric con chat pulita (**Clear chat**).
    2. Porre la domanda canonica all'agente.
    3. Verificare attentamente la risposta: controllare la query SQL generata e confrontare il valore con una query di riferimento eseguita direttamente sul database.
@@ -204,7 +203,26 @@ Per rendere il file Excel accessibile da un notebook Fabric, è necessario caric
 
 ---
 
-## Step 6 – Installazione dell'SDK e caricamento del dataset
+## Step 6 – Aggiunta del Lakehouse di default al notebook
+
+Questo passaggio è **obbligatorio** prima di eseguire `evaluate_data_agent` più avanti. Il motivo è un dettaglio implementativo dell'SDK: internamente, la funzione usa `_default_lakehouse_path()` per determinare dove salvare le tabelle di output. Se nessun Lakehouse è stato impostato come default nel notebook, l'esecuzione fallisce.
+
+1. Nel notebook, apri il pannello **Explorer** a sinistra.
+2. Clicca su **+ Add data**.
+
+![Figura 5 — Aggiunta di un nuovo data item al notebook](images/fig05-add-data-item-to-notebook.png)
+*Figura 5 — Add a new data item to the evaluation notebook*
+
+3. Seleziona il Lakehouse **`evaluation`** (quello con l'icona a onde) e clicca su **Add**.
+
+![Figura 6 — Aggiunta del Lakehouse evaluation come default](images/fig06-add-default-lakehouse.png)
+*Figura 6 — Add the evaluation lakehouse as default lakehouse*
+
+> ✅ **Check:** il Lakehouse `evaluation` compare nel pannello Explorer del notebook come data item.
+
+---
+
+## Step 7 – Installazione dell'SDK e caricamento del dataset
 
 ### Cella 1 – Installazione di `fabric-data-agent-sdk`
 
@@ -231,25 +249,6 @@ Sostituisci il path ABFS con quello copiato nello Step 4.
 > 💡 Il DataFrame deve contenere almeno le colonne `question` ed `expected_answer`. È utile mantenere anche i metadati del benchmark (`intent_id`, `question_id`, `variant_type`, `category_5`, ecc.) per il join diagnostico successivo.
 
 > ✅ **Check:** il DataFrame visualizza le 72 righe del benchmark con le colonne `question` ed `expected_answer` popolate.
-
----
-
-## Step 7 – Aggiunta del Lakehouse di default al notebook
-
-Questo passaggio è **obbligatorio** prima di eseguire `evaluate_data_agent`. Il motivo è un dettaglio implementativo dell'SDK: internamente, la funzione usa `_default_lakehouse_path()` per determinare dove salvare le tabelle di output. Se nessun Lakehouse è stato impostato come default nel notebook, l'esecuzione fallisce.
-
-1. Nel notebook, apri il pannello **Explorer** a sinistra.
-2. Clicca su **+ Add data**.
-
-![Figura 5 — Aggiunta di un nuovo data item al notebook](images/fig05-add-data-item-to-notebook.png)
-*Figura 5 — Add a new data item to the evaluation notebook*
-
-3. Seleziona il Lakehouse **`evaluation`** (quello con l'icona a onde) e clicca su **Add**.
-
-![Figura 6 — Aggiunta del Lakehouse evaluation come default](images/fig06-add-default-lakehouse.png)
-*Figura 6 — Add the evaluation lakehouse as default lakehouse*
-
-> ✅ **Check:** il Lakehouse `evaluation` compare nel pannello Explorer del notebook come data item.
 
 ---
 
